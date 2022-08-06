@@ -34,4 +34,15 @@ public class TreeOneZeroTest {
         bt.delete(9);
         Assert.assertFalse(bt.containsNode(9));
     }
+
+    @Test
+    public void traverseTests() {
+        bt.traverseInOrder(bt.getRoot());
+        System.out.println("\n");
+        bt.traversePreOrder(bt.getRoot());
+        System.out.println("\n");
+        bt.traversePostOrder(bt.getRoot());
+        System.out.println("\n");
+        bt.traverseLevelOrder();
+    }
 }

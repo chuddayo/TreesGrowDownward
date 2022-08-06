@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * Created by kristofer on 7/13/20.
  */
@@ -74,6 +77,53 @@ public class TreeOneZero {
         return findSmallestValueOfTree(baseNode.getLeft());
     }
 
+    public void traverseInOrder(Node node) {
+        if (node != null) {
+            traverseInOrder(node.getLeft());
+            System.out.print(" " + node.getValue());
+            traverseInOrder(node.getRight());
+        }
+    }
 
+    public void traversePreOrder(Node node) {
+        if (node != null) {
+            System.out.print(" " + node.getValue());
+            traversePreOrder(node.getLeft());
+            traversePreOrder(node.getRight());
+        }
+    }
 
+    public void traversePostOrder(Node node) {
+        if (node != null) {
+            traversePostOrder(node.getLeft());
+            traversePostOrder(node.getRight());
+            System.out.print(" " + node.getValue());
+        }
+    }
+
+    // for free method from readme
+    public void traverseLevelOrder() {
+        if (root == null) {
+            return;
+        }
+
+        Queue<Node> nodes = new LinkedList<>();
+        nodes.add(root);
+
+        while (!nodes.isEmpty()) {
+            Node node = nodes.remove();
+            System.out.print(" " + node.getValue());
+            if (node.getLeft() != null) {
+                nodes.add(node.getLeft());
+            }
+
+            if (node.getRight() != null) {
+                nodes.add(node.getRight());
+            }
+        }
+    }
+
+    public Node getRoot() {
+        return root;
+    }
 }
